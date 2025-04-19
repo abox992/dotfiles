@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "@{{ .UserName }} ",
+          "foreground": "#E36464",
+          "type": "session",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "➜",
+          "foreground": "#62ED8B",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "style": "full"
+          },
+          "template": " {{ .Path }}",
+          "foreground": "#56B6C2",
+          "type": "path",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "branch_icon": "",
+            "branch_identical_icon": "\uf42e",
+            "cache_duration": "none",
+            "fetch_status": true,
+            "native_fallback": true
+          },
+          "template": " <#DDB15F>git(</>{{ if or .Working.Changed .Staging.Changed }}<#BE3737>{{ else }}<#62ED8B>{{ end }}{{ .HEAD }}</><#DDB15F>)</> {{ .BranchStatus }}",
+          "foreground": "#D4AAFC",
+          "type": "git",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " $",
+          "foreground": "#E6E8EA",
+          "type": "text",
+          "style": "plain"
+        }
+      ]
+    }
+  ],
+  "version": 3,
+  "final_space": true
+}
