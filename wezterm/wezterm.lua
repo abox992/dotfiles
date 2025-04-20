@@ -7,4 +7,7 @@ config.font = wezterm.font {
 }
 -- config.color_scheme = 'Batman'
 
+config.animation_fps = 120
+config.max_fps = 120
+
 return config

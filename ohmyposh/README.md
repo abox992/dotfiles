@@ -13,7 +13,7 @@ curl -s https://ohmyposh.dev/install.sh | bash -s
 Add the following to **the bottom** of `~/.profile`:
 
 ```bash
-eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/zash.omp.json)"
+eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/zash.omp.json)"
 ```
 
 *Note: config location is arbitrary, path is to wherever you put it.*
