@@ -15,12 +15,12 @@ return {
             },
             handlers = {
                 function(server_name)
-                    require('lspconfig')[server_name].setup {}
+                    vim.lsp.config(server_name, {})
                 end,
             },
         }
 
-        require('lspconfig').lua_ls.setup {
+        vim.lsp.config('lua_ls', {
             -- ... other configs
             settings = {
                 Lua = {
@@ -29,14 +29,14 @@ return {
                     },
                 },
             },
-        }
+        })
 
-        require('lspconfig').clangd.setup {
+        vim.lsp.config('clangd', {
             cmd = {
                 'clangd',
                 '--fallback-style=WebKit',
             },
-        }
+        })
 
         vim.diagnostic.config {
             update_in_insert = true,
