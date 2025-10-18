@@ -1,16 +1,13 @@
 return {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    "shaunsingh/nord.nvim", 
+    name = "nord",
     lazy = false,
     priority = 1000,
     opts = {},
     init = function()
-        vim.cmd.colorscheme 'rose-pine'
+        vim.cmd.colorscheme 'nord'
     end,
     config = function()
-        require('rose-pine').setup {
-            variant = 'moon',
-        }
     end,
 }
 
