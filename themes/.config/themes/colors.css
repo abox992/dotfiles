@@ -1,0 +1,29 @@
+/* Nord Color Palette */
+/* https://www.nordtheme.com */
+
+/* Nord Color Palette with semantic names */
+
+/* Backgrounds */
+@define-color bg-base #2E3440;
+@define-color bg-elevated #3B4252;
+@define-color bg-highlight #434C5E;
+@define-color bg-subtle #4C566A;
+
+/* Foregrounds */
+@define-color fg-base #ECEFF4;
+@define-color fg-dim #E5E9F0;
+@define-color fg-muted #D8DEE9;
+@define-color fg-comment #4C566A;
+
+/* Accents - Frost */
+@define-color accent-teal #8FBCBB;
+@define-color accent-cyan #88C0D0;
+@define-color accent-blue #81A1C1;
+@define-color accent-darkblue #5E81AC;
+
+/* Aurora */
+@define-color red #BF616A;
+@define-color orange #D08770;
+@define-color yellow #EBCB8B;
+@define-color green #A3BE8C;
+@define-color purple #B48EAD;

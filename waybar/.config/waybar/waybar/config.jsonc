@@ -1,0 +1,77 @@
+{
+    "layer": "top",
+    "position": "top",
+    /* === Modules Order === */
+    "modules-left": ["custom/archicon", "clock", "custom/power", "bluetooth"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["wlr/taskbar", "custom/audio", "network"],
+    /* === Modules Left === */
+    "custom/archicon": {
+        "format": "",
+        "on-click": "rofi -show drun",
+        "tooltip": false,
+    },
+    "clock": {
+        "format": "[[ {:%I:%M %p  %m-%d} ]]",
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "mode": "month",
+        },
+    },
+    "custom/power": {
+        "format": "[[ 󰤆 ]]",
+        "tooltip": true,
+        "tooltip-format": "Power Menu",
+        "on-click": "~/.config/waybar/scripts/power-menu.sh",
+    },
+    "bluetooth": {
+        "format": "{icon}",
+        "format-icons": {
+            "enabled": "[[  ]]",
+            "disabled": "[[ 󰂲 ]]",
+        },
+        "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+        "tooltip-format": "Bluetooth is {status}",
+        "interval": 5,
+    },
+    /* === Modules Center === */
+    "hyprland/workspaces": {
+        "format": "[[ {icon} ]]",
+        "format-icons": {
+            "active": "",
+        },
+        "persistent-workspaces": {
+            "*": 2,
+        },
+        "disable-scroll": true,
+        "all-outputs": true,
+        "show-special": true,
+    },
+    /* === Modules Right === */
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "all-outputs": true,
+        "active-first": false,
+        "tooltip-format": "{name}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": ["rofi"],
+    },
+    "custom/audio": {
+        "exec": "~/.config/waybar/scripts/audio-bar.sh",
+        "interval": 1,
+        "format": "{}",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "~/.config/waybar/scripts/volume-up.sh",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-ethernet": "[[ 󰈁 ]]",
+        "format-disconnected": "[[  ]]",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+    },
+}
