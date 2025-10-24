@@ -1,0 +1,56 @@
+/* Minimal Glass Theme - Color Definitions */
+/* Place this in ~/.config/themes/minimal.css */
+
+:root {
+    /* Base colors */
+    --bg-primary: rgba(10, 10, 10, 0.75);
+    --bg-secondary: rgba(15, 15, 15, 0.9);
+    --bg-tertiary: rgba(20, 20, 20, 0.85);
+
+    /* Glass overlays */
+    --glass-light: rgba(255, 255, 255, 0.05);
+    --glass-medium: rgba(255, 255, 255, 0.08);
+    --glass-strong: rgba(255, 255, 255, 0.1);
+    --glass-hover: rgba(255, 255, 255, 0.07);
+
+    /* Text colors */
+    --text-primary: rgba(255, 255, 255, 0.9);
+    --text-secondary: rgba(255, 255, 255, 0.8);
+    --text-tertiary: rgba(255, 255, 255, 0.6);
+    --text-dim: rgba(255, 255, 255, 0.4);
+    --text-muted: rgba(255, 255, 255, 0.3);
+
+    /* Accent colors - subtle pastels */
+    --accent-blue: rgba(108, 153, 187, 1); /* CPU, info */
+    --accent-yellow: rgba(181, 137, 0, 1); /* Memory, warning */
+    --accent-cyan: rgba(42, 161, 152, 1); /* Network, success */
+    --accent-magenta: rgba(211, 54, 130, 1); /* Audio, special */
+    --accent-orange: rgba(203, 75, 22, 1); /* Temperature */
+    --accent-green: rgba(133, 153, 0, 1); /* Active, charging */
+    --accent-red: rgba(220, 50, 47, 1); /* Error, critical */
+
+    /* Accent backgrounds */
+    --accent-red-bg: rgba(220, 50, 47, 0.2);
+    --accent-red-bg-alt: rgba(220, 50, 47, 0.3);
+    --accent-green-bg: rgba(133, 153, 0, 0.15);
+
+    /* Borders */
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-medium: rgba(255, 255, 255, 0.1);
+    --border-active: rgba(255, 255, 255, 0.6);
+
+    /* Effects */
+    --blur-amount: 10px;
+    --border-radius: 6px;
+    --border-radius-small: 4px;
+    --border-radius-large: 8px;
+    --transition-speed: 0.3s;
+
+    /* Spacing */
+    --spacing-xs: 2px;
+    --spacing-sm: 3px;
+    --spacing-md: 5px;
+    --spacing-lg: 8px;
+    --spacing-xl: 10px;
+    --spacing-xxl: 12px;
+}
