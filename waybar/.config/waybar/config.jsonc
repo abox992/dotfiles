@@ -1,77 +1,122 @@
 {
     "layer": "top",
     "position": "top",
-    /* === Modules Order === */
-    "modules-left": ["custom/archicon", "clock", "custom/power", "bluetooth"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["wlr/taskbar", "custom/audio", "network"],
-    /* === Modules Left === */
-    "custom/archicon": {
-        "format": "",
-        "on-click": "rofi -show drun",
-        "tooltip": false,
-    },
-    "clock": {
-        "format": "[[ {:%I:%M %p  %m-%d} ]]",
-        "tooltip-format": "{calendar}",
-        "calendar": {
-            "mode": "month",
-        },
-    },
+    "height": 34,
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+
+    // Module layout
+    "modules-left": ["custom/power", "hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "battery",
+        "tray",
+    ],
+
+    // Module configurations
+
     "custom/power": {
-        "format": "[[ 󰤆 ]]",
+        "format": "<span font_size='15pt'>\uf011</span>",
         "tooltip": true,
         "tooltip-format": "Power Menu",
         "on-click": "~/.config/waybar/scripts/power-menu.sh",
     },
-    "bluetooth": {
-        "format": "{icon}",
-        "format-icons": {
-            "enabled": "[[  ]]",
-            "disabled": "[[ 󰂲 ]]",
-        },
-        "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
-        "tooltip-format": "Bluetooth is {status}",
-        "interval": 5,
-    },
-    /* === Modules Center === */
+
     "hyprland/workspaces": {
-        "format": "[[ {icon} ]]",
-        "format-icons": {
-            "active": "",
-        },
-        "persistent-workspaces": {
-            "*": 2,
-        },
-        "disable-scroll": true,
-        "all-outputs": true,
-        "show-special": true,
-    },
-    /* === Modules Right === */
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "all-outputs": true,
-        "active-first": false,
-        "tooltip-format": "{name}",
+        "format": "{id}",
         "on-click": "activate",
-        "on-click-middle": "close",
-        "ignore-list": ["rofi"],
+        "all-outputs": true,
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "*": 5,
+        },
     },
-    "custom/audio": {
-        "exec": "~/.config/waybar/scripts/audio-bar.sh",
-        "interval": 1,
+
+    "hyprland/window": {
         "format": "{}",
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-scroll-up": "~/.config/waybar/scripts/volume-up.sh",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-    },
-    "network": {
-        "format": "{ifname}",
-        "format-ethernet": "[[ 󰈁 ]]",
-        "format-disconnected": "[[  ]]",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "Disconnected",
         "max-length": 50,
+        "separate-outputs": true,
+    },
+
+    "clock": {
+        "format": "{:%A, %B %d, %Y  %H:%M}",
+        "format-alt": "{:%H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+            },
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down",
+        },
+    },
+
+    // "cpu": {
+    //     "format": " {usage}%",
+    //     "tooltip": true,
+    //     "interval": 2,
+    // },
+    //
+    // "memory": {
+    //     "format": " {}%",
+    //     "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+    // },
+    //
+    // "temperature": {
+    //     "thermal-zone": 2,
+    //     "critical-threshold": 80,
+    //     "format": " {temperatureC}°C",
+    //     "format-critical": " {temperatureC}°C",
+    // },
+    //
+    // "battery": {
+    //     "states": {
+    //         "warning": 30,
+    //         "critical": 15,
+    //     },
+    //     "format": "{icon} {capacity}%",
+    //     "format-charging": " {capacity}%",
+    //     "format-plugged": " {capacity}%",
+    //     "format-icons": ["", "", "", "", ""],
+    // },
+
+    "network": {
+        "format-wifi": "<span>\uf1eb</span>",
+        "format-ethernet": "<span>\uf6ff</span>",
+        "format-disconnected": "<span>\uf127</span>",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)\n{ipaddr}/{cidr}",
+        "tooltip-format-ethernet": " {ifname}\n{ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor",
+    },
+
+    "pulseaudio": {
+        "format": "<span font_size='16pt'>{icon}</span> <span rise='2900'>{volume}%</span>",
+        "format-muted": "<span font_size='16pt'>\uf6a9</span>",
+        "format-icons": {
+            "default": ["\uf027", "\uf028"],
+        },
+        "on-click": "pavucontrol",
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
     },
 }

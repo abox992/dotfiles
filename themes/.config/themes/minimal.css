@@ -1,56 +1,54 @@
 /* Minimal Glass Theme - Color Definitions */
-/* Place this in ~/.config/themes/minimal.css */
+/* GTK3 CSS using @define-color rules */
 
-:root {
-    /* Base colors */
-    --bg-primary: rgba(10, 10, 10, 0.75);
-    --bg-secondary: rgba(15, 15, 15, 0.9);
-    --bg-tertiary: rgba(20, 20, 20, 0.85);
+/* Base colors */
+@define-color bg_primary rgba(10, 10, 10, 0.25);
+@define-color bg_secondary rgba(15, 15, 15, 0.9);
+@define-color bg_tertiary rgba(20, 20, 20, 0.85);
 
-    /* Glass overlays */
-    --glass-light: rgba(255, 255, 255, 0.05);
-    --glass-medium: rgba(255, 255, 255, 0.08);
-    --glass-strong: rgba(255, 255, 255, 0.1);
-    --glass-hover: rgba(255, 255, 255, 0.07);
+/* Glass overlays */
+@define-color glass_light rgba(255, 255, 255, 0.05);
+@define-color glass_medium rgba(255, 255, 255, 0.08);
+@define-color glass_strong rgba(255, 255, 255, 0.1);
+@define-color glass_hover rgba(255, 255, 255, 0.07);
 
-    /* Text colors */
-    --text-primary: rgba(255, 255, 255, 0.9);
-    --text-secondary: rgba(255, 255, 255, 0.8);
-    --text-tertiary: rgba(255, 255, 255, 0.6);
-    --text-dim: rgba(255, 255, 255, 0.4);
-    --text-muted: rgba(255, 255, 255, 0.3);
+/* Text colors */
+@define-color text_primary rgba(255, 255, 255, 0.9);
+@define-color text_secondary rgba(255, 255, 255, 0.8);
+@define-color text_tertiary rgba(255, 255, 255, 0.6);
+@define-color text_dim rgba(255, 255, 255, 0.4);
+@define-color text_muted rgba(255, 255, 255, 0.3);
 
-    /* Accent colors - subtle pastels */
-    --accent-blue: rgba(108, 153, 187, 1); /* CPU, info */
-    --accent-yellow: rgba(181, 137, 0, 1); /* Memory, warning */
-    --accent-cyan: rgba(42, 161, 152, 1); /* Network, success */
-    --accent-magenta: rgba(211, 54, 130, 1); /* Audio, special */
-    --accent-orange: rgba(203, 75, 22, 1); /* Temperature */
-    --accent-green: rgba(133, 153, 0, 1); /* Active, charging */
-    --accent-red: rgba(220, 50, 47, 1); /* Error, critical */
+/* Accent colors - subtle pastels */
+@define-color accent_blue rgb(108, 153, 187);
+@define-color accent_yellow rgb(181, 137, 0);
+@define-color accent_cyan rgb(42, 161, 152);
+@define-color accent_magenta rgb(211, 54, 130);
+@define-color accent_orange rgb(203, 75, 22);
+@define-color accent_green rgb(133, 153, 0);
+@define-color accent_red rgb(220, 50, 47);
 
-    /* Accent backgrounds */
-    --accent-red-bg: rgba(220, 50, 47, 0.2);
-    --accent-red-bg-alt: rgba(220, 50, 47, 0.3);
-    --accent-green-bg: rgba(133, 153, 0, 0.15);
+/* Accent backgrounds */
+@define-color accent_red_bg rgba(220, 50, 47, 0.2);
+@define-color accent_red_bg_alt rgba(220, 50, 47, 0.3);
+@define-color accent_green_bg rgba(133, 153, 0, 0.15);
 
-    /* Borders */
-    --border-subtle: rgba(255, 255, 255, 0.05);
-    --border-medium: rgba(255, 255, 255, 0.1);
-    --border-active: rgba(255, 255, 255, 0.6);
+/* Borders */
+@define-color border_subtle rgba(255, 255, 255, 0.05);
+@define-color border_medium rgba(255, 255, 255, 0.1);
+@define-color border_active rgba(255, 255, 255, 0.6);
 
-    /* Effects */
-    --blur-amount: 10px;
-    --border-radius: 6px;
-    --border-radius-small: 4px;
-    --border-radius-large: 8px;
-    --transition-speed: 0.3s;
+/* Additional semantic colors for easy theming */
+@define-color theme_fg_color @text_primary;
+@define-color theme_bg_color @bg_primary;
+@define-color theme_base_color @bg_secondary;
+@define-color theme_selected_bg_color @glass_strong;
+@define-color theme_selected_fg_color @text_primary;
+@define-color insensitive_fg_color @text_dim;
+@define-color insensitive_bg_color @glass_light;
+@define-color borders @border_subtle;
 
-    /* Spacing */
-    --spacing-xs: 2px;
-    --spacing-sm: 3px;
-    --spacing-md: 5px;
-    --spacing-lg: 8px;
-    --spacing-xl: 10px;
-    --spacing-xxl: 12px;
-}
+/* Success/Warning/Error semantic colors */
+@define-color success_color @accent_cyan;
+@define-color warning_color @accent_yellow;
+@define-color error_color @accent_red;

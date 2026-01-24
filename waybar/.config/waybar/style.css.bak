@@ -1,0 +1,146 @@
+@import "../themes/colors.css";
+
+/* -- Global rules -- */
+* {
+    border: none;
+    font-family: "CaskaydiaMono Nerd Font";
+    font-size: 14px;
+    min-height: 10px;
+}
+
+#waybar {
+    background-color: @bg-base; 
+    border-radius: 2px;
+    opacity: 0.95;
+}
+
+window#waybar {
+    /* background: rgba(34, 36, 54, 0.6); */
+    background: @bg-base;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    /* color: #9cdef2; */
+    color: @orange;
+    border: 3px solid @accent-blue;
+    /* border-left: 3px solid @accent-blue; */
+    /* border-right: 3px solid @accent-blue; */
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* - Genera rules for visible modules -- */
+
+#clock,
+#network,
+#bluetooth,
+#custom-power,
+#custom-audio {
+    padding: 6px 12px;
+    margin: 6px 6px;
+    border: 2px solid @accent-blue;
+    border-radius: 2px;
+}
+
+#clock,
+#custom-archicon,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#idle_inhibitor,
+#pulseaudio,
+#pulseaudio-slider,
+#network,
+#language {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: none;
+}
+
+/* Separation to the left */
+#custom-archicon,
+#cpu,
+#idle_inhibitor {
+    margin-left: 5px;
+    /* border-top-left-radius: 10px; */
+    /* border-bottom-left-radius: 10px; */
+}
+
+/* -- Specific styles -- */
+
+/* Modules left */
+#custom-archicon {
+    font-size: 20px;
+    color: @purple;
+    /* background: #161320; */
+    padding-right: 17px;
+}
+
+/* Modules center */
+#workspaces {
+    margin: 6px 5px;
+    padding: 0px 6px;
+}
+
+#workspaces button {
+    color: @accent-cyan;
+    background: transparent;
+    padding: 4px 4px;
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+#workspaces button.occupied {
+}
+
+#workspaces button.active {
+    color: @orange;
+    text-shadow: 0 0 4px @bg-highlight;
+}
+
+#workspaces button:hover {
+}
+
+#workspaces button.active:hover {
+}
+
+/* Modules right */
+#taskbar {
+    background: transparent;
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin: 6px 5px;
+}
+
+#taskbar button {
+    padding: 0px 5px;
+    margin: 0px 3px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+#taskbar button.active {
+    background: rgba(34, 36, 54, 0.5);
+}
+
+#taskbar button:hover {
+    background: rgba(34, 36, 54, 0.5);
+}
+
+#network {
+    padding-right: 13px;
+}
+
+/* === Optional animation === */
+@keyframes blink {
+    to {
+        background-color: #bf616a;
+        color: #b5e8e0;
+    }
+}
